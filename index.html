@@ -63,7 +63,7 @@
           let base = basePathElems.length > 0 ? `/${basePathElems.join('/')}/` : '/'
           let url = `${API_ENDPOINT}/${prefix}/${this.path}${this.path === '' ? '' : '/'}?base=${base}&prefix=${prefix}&inline=true`
           if (this.ref) url += `&ref=${this.ref}`
-          // console.log(`loadPage: url=${url}`)
+          console.log(`loadPage: url=${url}`)
           fetch(url).then(resp => resp.text())
           .then(html => {
             let [head, body] = new DOMParser().parseFromString(html, 'text/html').children[0].children
